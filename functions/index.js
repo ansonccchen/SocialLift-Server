@@ -1,5 +1,10 @@
 const functions = require('firebase-functions');
 const { db } = require('./util/admin.js')
+const express = require('express')
+const app = express()
+const cors = require('cors')
+app.use(cors())
+
 const { 
     getAllPosts, 
     createPost, 
@@ -19,9 +24,6 @@ const {
     markNotificationsRead
  } = require('./handlers/users')
 const FBAuth = require("./util/fbAuth")
-
-const express = require('express')
-const app = express()
 
 // post route
 app.get('/posts', getAllPosts)
